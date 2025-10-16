@@ -1,13 +1,15 @@
 version: 0.2
 
 env:
-  runtime-versions:
-    nodejs: 22
   variables:
-    NODE_ENV: production
+     BUILD_FOLDER: "dist"
+batch:
+  fast-fail: true
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 22
     commands:
       - echo Installing dependencies...
       - npm ci
@@ -17,6 +19,7 @@ phases:
       - npm run build
 
 artifacts:
-  base-directory: dist
   files:
-    - '**/*'
+     - '**/*'
+  discard-paths: no
+  base-directory: $BUILD_FOLDER
