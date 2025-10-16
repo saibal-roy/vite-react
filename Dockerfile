@@ -1,7 +1,7 @@
 # ================================
 # Stage 1 — Build the Vite app
 # ================================
-FROM node:22-alpine AS build
+FROM public.ecr.aws/docker/library/node:22-alpine AS build
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ RUN npm run build
 # ================================
 # Stage 2 — Serve using Nginx
 # ================================
-FROM nginx:stable-alpine AS production
+FROM public.ecr.aws/nginx/nginx:stable AS production
 
 # Copy custom nginx configuration (optional)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
