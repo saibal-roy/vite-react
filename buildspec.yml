@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - npm ci
+  build:
+    commands:
+      - echo Running build for Vite React app...
+      - npm run build
+
+artifacts:
+  base-directory: dist
+  files:
+    - '**/*'
