@@ -1,5 +1,11 @@
 version: 0.2
 
+env:
+  runtime-versions:
+    nodejs: 22
+  variables:
+    NODE_ENV: production
+
 phases:
   install:
     commands:
